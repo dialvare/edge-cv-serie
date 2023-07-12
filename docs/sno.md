@@ -53,9 +53,9 @@ r740.pemlab.rdu2.redhat.com   Ready    control-plane,master,worker   14d   v1.25
 ```
 
 ## Namespace creation
-Before continuing, let's create a namespace where all the resources tailored to this demo will be deployed. The follwoing command will create the new project. Name it as you prefer; I'll choose *pokedex* for this demo:
+Before continuing, let's create a namespace where all the resources tailored to this demo will be deployed. The follwoing command will create the new project. Name it as you prefer; I'll choose *demo* for this demo:
 ```
-oc new-project pokedex
+oc new-project demo
 ```
 
 Remember also to select this project from the Project drop-down menu at the top left in the Web Console, when deploying the resources for our demo. 
@@ -90,7 +90,7 @@ spec:
       fileData:
         name: htpass-secret
     mappingMethod: claim
-    name: Pokedex
+    name: Demo
     type: HTPasswd
 ```
 In case you want to perform admin activities in the cluster with your user, you'll need to assign it admin permissions. Run this command for this pourpose:
