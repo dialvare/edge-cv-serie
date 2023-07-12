@@ -94,9 +94,9 @@ git clone https://github.com/opencv/cvat
 cd cvat
 ```
 
-At this point, we can start configuring the application. To do so, you will need to export the host domain (*.apps.pokedex.pemlab.rdu2.redhat.com*, in my case):
+At this point, we can start configuring the application. To do so, you will need to export the host domain (*.apps.demo.pemlab.rdu2.redhat.com*, in my case):
 ```
-export CVAT_HOST=.apps.pokedex.pemlab.rdu2.redhat.com
+export CVAT_HOST=.apps.demo.pemlab.rdu2.redhat.com
 printenv | grep CVAT_HOST
 ```
 
@@ -154,7 +154,7 @@ oc get route cvat
 Here we can see our URL:
 ```
 NAME   HOST/PORT                                          PATH   SERVICES   PORT    TERMINATION   WILDCARD
-cvat   cvat-pokedex.apps.pokedex.pemlab.rdu2.redhat.com          cvat       <all>   edge          None
+cvat   cvat-demo.apps.demo.pemlab.rdu2.redhat.com          cvat       <all>   edge          None
 ```
 
-Copy and paste it in your Web Browser to access the admin page: [https://cvat-pokedex.apps.pokedex.pemlab.rdu2.redhat.com/admin/](https://cvat-pokedex.apps.pokedex.pemlab.rdu2.redhat.com/admin/)
+Copy and paste it in your Web Browser to access the admin page: [https://cvat-demo.apps.demo.pemlab.rdu2.redhat.com/admin/](https://cvat-demo.apps.demo.pemlab.rdu2.redhat.com/admin/)
