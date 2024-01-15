@@ -108,4 +108,36 @@ That's it! We have just created and connected to our host machine.
    ```
    openshift-install create install-config --dir=./
    ```   
-2. Use the arrow keys in your board to  
+2. Use the arrow keys in your keyboard and select the following configuration:
+   * **SSH Public Key**: *`/home/ec2-user/.ssh/ocp4-aws-key.pub`*.
+   * **Platform**: *`aws`*.
+   * **AWS Access Key ID**: Paste the one copied when you created your user.
+   * **AWS Secret Access Key ID**: Paste the one copied when you created your user.
+   * **Region**: Select the region where the host was created (*`eu-north-1`* in my case).
+   * **BaseDomain**: Select your domain (*`sandbox517.opentlc.com`* in my case).
+   * **Cluster name**: Type your preferred name for the cluster. I will choose *`sno`*.
+   * **Pull Secret**: Copy your pull secret from the [Hybrid cloud Console](https://console.redhat.com/openshift/downloads#tool-pull-secret).
+4. Now you can take a look to the newly created config file:
+   ```
+   vi install-config.yaml 
+   ```
+6. To deploy a Single Node OpenShift change the *`worker`* nodes to *`0`* and the *`master`* nodes to *`1`*:
+   ```
+   compute:
+   - architecture: amd64
+     hyperthreading: Enabled
+     name: worker
+     platform: {}
+     replicas: 0
+   controlPlane:
+     architecture: amd64
+     hyperthreading: Enabled
+     name: master
+     platform: {}
+     replicas: 1
+   ```
+8. Finally, run the installation command. The installer will use the configuration file we just modified:
+   ```
+   openshift-install create cluster --dir=./ --log-level=debug
+   ```
+10. Note down the Kubeadmin and Password.
