@@ -1,4 +1,17 @@
 # Installing Single Node OpenShift on AWS
+Looking for a simple and quick way to get into the world of Kubernetes and the cloud? If this is your case, you're in the right place!
+
+Here begins a series of blogs that will guide you through the process from the cloud to the edge, to run computer vision models. In this blog, we will embark on a step-by-step exploration of the process for installing and configuring a Single Node OpenShift (SNO) environment on Amazon Web Services (AWS). Throughout this journey, we'll guide you through the essential elements you need to master for a successful installation. From spinning up an AWS instance to configuring your OpenShift environment, we'll cover every detail so you can deploy and run containerized applications efficiently.
+
+## Create and configure an AWS account
+For this blogpost we have choosen to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. For this blogpost, you will need to use an active AWS account or create a new one from the [Amazon Web Service home page](https://aws.amazon.com/).
+
+### Creating and configuring the Route 53 service
+
+
+
+
+
 ## Create AWS instance
 1. Navigate to the AWS Web Console and login using your credentials.
 2. In the upper-left corner, click on "**Services**".
