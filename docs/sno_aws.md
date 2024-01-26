@@ -7,10 +7,32 @@ Here begins a series of blogs that will guide you through the process from the c
 For this blogpost we have choosen to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. For this blogpost, you will need to use an active AWS account or create a new one from the [Amazon Web Service home page](https://aws.amazon.com/).
 
 ### Creating and configuring the Route 53 service
+As part of the account configuration and, in order to being able to deploy OpenShift, it is needed to set up a public hosted zone in the Route 53 service.  
+
+## Creating the IAM user
+When the AWS account was created, it was provisioned with a highly-privileged account. However, the creation of a specific IAM user for OpenShift on AWS is a recommended security practice to add an additional layer of security and facilitate the management and auditing of the accesses and actions performed by OpenShift on the AWS infrastructure. 
 
 
 
-
+1. In the AWS Web Console navigate again to "**Services**".
+2. Now click on "**Security, Identity & Compliance**" and select the "**IAM**" option.
+3. On the left column in the *IAM Dashboard*, go to the "**Users**" page.
+4. Click on "**Create user**", on the upper-right corner.
+5. On the new page, type "**User name**": *`dialvare`* (introduce here the name of your new user). Then, click on "**Next**".
+6. [X] Verify that the "**Add user to group**" box is selected.
+6. Select "**Create group**" and follow this set up:
+   * **User group name**: *`admin`*.
+   * [X] Check the "**AdministratorAccess**" policy.
+7. Click on "**Create user group**" again, and you will be redirected to the *User creation* form.
+9. [X] Select the new "**admin**" group name.
+8. Click "**Next**", review the summary and complete the user creation clicking on "**Create user**".
+9. Back in the *Users* page, select your user. in my case "**dialvare**".
+10. There, you will find some information about the user. Navigate to the "**Security credentials**" tab.
+11. Scroll down to the *Access keys* section and select "**Create access key**".
+12. [X] Check the "**Command Line Interface (CLI)**" option.
+15. [X] Check the Confirmation box at the bottom.
+12. Click "**Next**". And skip the description tag step. Now click "**Create access key**".
+13. Please, copy the "**Access key**" and the "**Secret access key**". You may need it in the future.
 
 ## Create AWS instance
 1. Navigate to the AWS Web Console and login using your credentials.
@@ -47,25 +69,7 @@ For this blogpost we have choosen to use Amazon Web Service as the cloud provide
 That's it! We have just created and connected to our host machine. 
 
 ## Create AWS user
-1. In the AWS Web Console navigate again to "**Services**".
-2. Now click on "**Security, Identity & Compliance**" and select the "**IAM**" option.
-3. On the left column in the *IAM Dashboard*, go to the "**Users**" page.
-4. Click on "**Create user**", on the upper-right corner.
-5. On the new page, type "**User name**": *`dialvare`* (introduce here the name of your new user). Then, click on "**Next**".
-6. [X] Verify that the "**Add user to group**" box is selected.
-6. Select "**Create group**" and follow this set up:
-   * **User group name**: *`admin`*.
-   * [X] Check the "**AdministratorAccess**" policy.
-7. Click on "**Create user group**" again, and you will be redirected to the *User creation* form.
-9. [X] Select the new "**admin**" group name.
-8. Click "**Next**", review the summary and complete the user creation clicking on "**Create user**".
-9. Back in the *Users* page, select your user. in my case "**dialvare**".
-10. There, you will find some information about the user. Navigate to the "**Security credentials**" tab.
-11. Scroll down to the *Access keys* section and select "**Create access key**".
-12. [X] Check the "**Command Line Interface (CLI)**" option.
-15. [X] Check the Confirmation box at the bottom.
-12. Click "**Next**". And skip the description tag step. Now click "**Create access key**".
-13. Please, copy the "**Access key**" and the "**Secret access key**". You may need it in the future.
+
 
 ## Installing the OCP client and the installer
 1. Navigate to the [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift) and log in using your Red Hat credentials.
