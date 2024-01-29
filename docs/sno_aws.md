@@ -1,40 +1,60 @@
 # Installing Single Node OpenShift on AWS
 Looking for a simple and quick way to get into the world of Kubernetes and the cloud? If this is your case, you're in the right place!
 
-Here begins a series of blogs that will guide you through the process from the cloud to the edge, to run computer vision models. In this blog, we will embark on a step-by-step exploration of the process for installing and configuring a Single Node OpenShift (SNO) environment on Amazon Web Services (AWS). Throughout this journey, we'll guide you through the essential elements you need to master for a successful installation. From spinning up an AWS instance to configuring your OpenShift environment, we'll cover every detail so you can deploy and run containerized applications efficiently.
+In this blog, we will embark on a step-by-step exploration of the process for installing and configuring a Single Node OpenShift (SNO) environment on Amazon Web Services (AWS). Throughout this journey, we'll guide you through the essential elements you need to master for a successful installation. From spinning up an AWS instance to configuring your OpenShift environment, we'll cover every detail so you can deploy and run containerized applications efficiently. The steps outlined in the blog are derived from the official [OpenShift 4.14 documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws), which can be referenced for further details and additional configurations.
+
+## Perks of Single Node Openshift on the cloud
+
+
+
+## Infrastructure minimum requirements
+Althoug Single Node OpenShift has a lower footprint than a traditional complete OCP cluster, there are some [minimum requirements](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#additional-requirements-for-installing-sno-on-a-cloud-provider_install-sno-installing-sno-with-the-assisted-installer) we need to acomplish: 
+ * For a single-node OpenShift cluster, you need only a temporary bootstrap machine and one cloud instance for the control plane node and no worker nodes.
+ * For a single-node OpenShift cluster, you must have a minimum of `8 vCPU cores`, `16GB of RAM` and `120GB of storage`.
+ * The `controlPlane.replicas` setting in the `install-config.yaml` file should be set to `1`.
+ * The `compute.replicas` setting in the `install-config.yaml` file should be set to `0`. This makes the control plane node schedulable.
 
 ## Create and configure an AWS account
-For this blogpost we have choosen to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. For this blogpost, you will need to use an active AWS account or create a new one from the [Amazon Web Service home page](https://aws.amazon.com/).
+For this blogpost we have choosen to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. Here is a table listing the SNO [supported cloud providers](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#supported-cloud-providers-for-single-node-openshift_install-sno-installing-sno-with-the-assisted-installer) and their CPU architectures: 
+
+| Cloud provider              | CPU architecture |
+|-----------------------------|------------------|
+| Amazon Web Service (AWS)    | x86_64 & aarch64 |
+| Google Cloud Platform (GCP) | x86_64 & aarch64 |
+| Microsoft Azure             | x86_64           |
+
+For this blogpost, you will need to use an active AWS account or create a new one from the [Amazon Web Service home page](https://aws.amazon.com/).
 
 ### Creating and configuring the Route 53 service
-As part of the account configuration and, in order to being able to deploy OpenShift, it is needed to set up a public hosted zone in the Route 53 service.  
+As part of the account configuration and, in order to being able to deploy OpenShift, it is needed to set up a public hosted zone in the Route 53 service. Here it is the [documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws#installation-aws-route53_installing-aws-account). 
 
-## Creating the IAM user
-When the AWS account was created, it was provisioned with a highly-privileged account. However, the creation of a specific IAM user for OpenShift on AWS is a recommended security practice to add an additional layer of security and facilitate the management and auditing of the accesses and actions performed by OpenShift on the AWS infrastructure. 
+#### Creating a hosted zone
 
+### Creating the IAM user
+When the AWS account was created, it was provisioned with a highly-privileged account. However, the creation of a specific IAM user for OpenShift on AWS is a recommended security practice to add an additional layer of security and facilitate the management and auditing of the accesses and actions performed by OpenShift on the AWS infrastructure. The official AWS documentation for this purpose can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console).
 
-
-1. In the AWS Web Console navigate again to "**Services**".
+1. In the AWS Web Console navigate again to "**Services**", in the upper-left corner.
 2. Now click on "**Security, Identity & Compliance**" and select the "**IAM**" option.
 3. On the left column in the *IAM Dashboard*, go to the "**Users**" page.
 4. Click on "**Create user**", on the upper-right corner.
 5. On the new page, type "**User name**": *`dialvare`* (introduce here the name of your new user). Then, click on "**Next**".
-6. [X] Verify that the "**Add user to group**" box is selected.
-6. Select "**Create group**" and follow this set up:
+6. Verify that the "**Add user to group**" box is selected.
+7. Select "**Create group**" and follow this set up:
    * **User group name**: *`admin`*.
-   * [X] Check the "**AdministratorAccess**" policy.
-7. Click on "**Create user group**" again, and you will be redirected to the *User creation* form.
-9. [X] Select the new "**admin**" group name.
-8. Click "**Next**", review the summary and complete the user creation clicking on "**Create user**".
-9. Back in the *Users* page, select your user. in my case "**dialvare**".
-10. There, you will find some information about the user. Navigate to the "**Security credentials**" tab.
-11. Scroll down to the *Access keys* section and select "**Create access key**".
-12. [X] Check the "**Command Line Interface (CLI)**" option.
-15. [X] Check the Confirmation box at the bottom.
-12. Click "**Next**". And skip the description tag step. Now click "**Create access key**".
-13. Please, copy the "**Access key**" and the "**Secret access key**". You may need it in the future.
+   * Check the "**AdministratorAccess**" policy.
+8. Click on "**Create user group**" again, and you will be redirected to the *User creation* form.
+9. Select the new "**admin**" group name.
+10. Click "**Next**", review the summary and complete the user creation clicking on "**Create user**".
+11. Back in the *Users* page, select your user. in my case "**dialvare**".
+12. There, you will find some information about the user. Navigate to the "**Security credentials**" tab.
+13. Scroll down to the *Access keys* section and select "**Create access key**".
+14. Check the "**Command Line Interface (CLI)**" option.
+15. Check the Confirmation box at the bottom.
+16. Click "**Next**". And skip the description tag step. Now click "**Create access key**".
+17. Please, copy the "**Access key**" and the "**Secret access key**". You may need it in the future.
 
 ## Create AWS instance
+
 1. Navigate to the AWS Web Console and login using your credentials.
 2. In the upper-left corner, click on "**Services**".
 3. In the drop-down menu, click on "**Compute**" and then "**EC2**" on the right side, to create the virtual server.
@@ -53,8 +73,8 @@ When the AWS account was created, it was provisioned with a highly-privileged ac
      * **VPC**: click on "**Create a new default VPC**". Then click on the Refresh arrow to autmatically detect your new VPC.
      * **Subnet**: click on the Refresh arrow and *`No Preference`* will be selected automatically.
      * **Auto-assign public IP**: *`Enable`*.
-   * [X] For the Firewall set up , check the "**Create security group**" box.
-   * [X] Check the "**Allow SSH trafic from**" -> "**Anywhere 0.0.0.0/0**".
+   * For the Firewall set up , check the "**Create security group**" box.
+   * Check the "**Allow SSH trafic from**" -> "**Anywhere 0.0.0.0/0**".
    * **Configure storage**: *`1x8GiB gp3`* Root volume.
 6. On the right side, now you can press the "**Launch instance**" button. Wait until the creation finished successfully.
 7. The next step will be selecting "**Connect to your instance**". This will open a new tab. 
@@ -68,10 +88,26 @@ When the AWS account was created, it was provisioned with a highly-privileged ac
     ```
 That's it! We have just created and connected to our host machine. 
 
-## Create AWS user
+## SSH key pair creation
+During the Single Node installation, we will need to supply an SSH public key to the installation program. This key is going to be transmitted to the node and will servie as a means of authenticating SSH access to it. Subsequently, the key is appended to the `~/.ssh/authorized_keys` list for the core user in the node, enabling password-less authentication. Here you can find the [documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws#ssh-agent-using_installing-aws-default). Follow the next steps to complete the set up:
 
+1. In your terminal run the following command to create the SSH keys:
+   ```
+   ssh-keygen -t ed25519 -N '' -f ${HOME}/.ssh/ocp4-aws-key
+   ```
+3. Now, check and copy your new public key:
+   ```
+   cat ${HOME}/.ssh/ocp4-aws-key.pub
+   ```
+5. Add the SSH private key identity to the SSH agent for your local user by running:
+   ```
+   ssh-add ${HOME}/.ssh/ocp4-aws-key
+   ```
 
-## Installing the OCP client and the installer
+With this, the ssh keys have been generated and we can use them during the SNO installation!
+
+## Installing the OCP client and the installation program
+
 1. Navigate to the [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift) and log in using your Red Hat credentials.
 2. On the left pannel, navigate to the "**Downloads**" page.
 3. Locate the "**OpenShift command-line interface (oc)**". Select "**Linux**" as the *OS system* and your *Architecture type*.
@@ -104,23 +140,7 @@ That's it! We have just created and connected to our host machine.
     openshift-install version
     ```
 
-## SSH key pair creation
-1. In your terminal run the following command to create the SSH keys:
-   ```
-   ssh-keygen -t ed25519 -N '' -f ${HOME}/.ssh/ocp4-aws-key
-   ```
-3. Now, check and copy your new public key:
-   ```
-   cat ${HOME}/.ssh/ocp4-aws-key.pub
-   ```
-5. Add the SSH private key identity to the SSH agent for your local user by running:
-   ```
-   ssh-add ${HOME}/.ssh/ocp4-aws-key
-   ```
-
-## Creating a hosted zone
-
-## OCP installation
+## Single Node deployment
 1. On the terminal, you will need to create a config file to specify the cluster details. Run:
    ```
    openshift-install create install-config --dir=./
