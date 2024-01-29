@@ -8,8 +8,8 @@ In the past decade, we have witnessed exponential growth in the interest and ado
 
 Single Node OpenShift emerges as an ideal solution for developers and testing teams seeking agility in development environments. As the name suggests, this configuration allows running a single instance of OpenShift on a lone node offering control and worker capabilities at the same time. With a smaller footprint, Single Node OpenShift provides a consistent and comprehensive environment for creating, testing, and deploying container-based applications without compromising the power of OpenShift. These are the [minimum system requirements](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#additional-requirements-for-installing-sno-on-a-cloud-provider_install-sno-installing-sno-with-the-assisted-installer) for deploying SNO on the cloud: `8 vCPU cores`, `16GB of RAM` and `120GB of storage`.
 
-## Create and configure an AWS account
-For this blogpost we have choosen to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. Here is a table listing the SNO [supported cloud providers](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#supported-cloud-providers-for-single-node-openshift_install-sno-installing-sno-with-the-assisted-installer) and their CPU architectures: 
+## Choosing and creating your cloud account
+Having seen some basic concepts about the technologies involved in this demo, it is time to start our hands-on deployment process! In this blogpost we have decided to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. Here is a table listing the SNO [supported cloud providers](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#supported-cloud-providers-for-single-node-openshift_install-sno-installing-sno-with-the-assisted-installer) and their CPU architectures: 
 
 | Cloud provider              | CPU architecture |
 |-----------------------------|------------------|
@@ -17,7 +17,9 @@ For this blogpost we have choosen to use Amazon Web Service as the cloud provide
 | Google Cloud Platform (GCP) | x86_64 & aarch64 |
 | Microsoft Azure             | x86_64           |
 
-For this blogpost, you will need to use an active AWS account or create a new one from the [Amazon Web Service home page](https://aws.amazon.com/).
+Depending on the cloud provider you choose, the steps described may vary slightly, so if you decide not to use AWS, we strongly encourage you to use this guide as a reference and supplement it with the official documentation. 
+
+That being said, let's move on and create a new AWS account from the [Amazon Web Service home page](https://aws.amazon.com/) in case you don't have an active one yet.
 
 ### Creating and configuring the Route 53 service
 As part of the account configuration and, in order to being able to deploy OpenShift, it is needed to set up a public hosted zone in the Route 53 service. Here it is the [documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws#installation-aws-route53_installing-aws-account). 
