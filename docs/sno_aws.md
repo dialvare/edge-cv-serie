@@ -21,7 +21,10 @@ Depending on the cloud provider you choose, the steps described may vary slightl
 
 That being said, let's move on and create a new AWS account from the [Amazon Web Service home page](https://aws.amazon.com/) in case you don't have an active one yet.
 
-### Creating and configuring the Route 53 service
+## Creating and configuring the Route 53 service
+
+
+
 As part of the account configuration and, in order to being able to deploy OpenShift, it is needed to set up a public hosted zone in the Route 53 service. Here it is the [documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws#installation-aws-route53_installing-aws-account). 
 
 #### Creating a hosted zone
