@@ -4,15 +4,9 @@ Looking for a simple and quick way to get into the world of Kubernetes and the c
 In this blog, we will embark on a step-by-step exploration of the process for installing and configuring a Single Node OpenShift (SNO) environment on Amazon Web Services (AWS). Throughout this journey, we'll guide you through the essential elements you need to master for a successful installation. From spinning up an AWS instance to configuring your OpenShift environment, we'll cover every detail so you can deploy and run containerized applications efficiently. The steps outlined in the blog are derived from the official [OpenShift 4.14 documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws), which can be referenced for further details and additional configurations.
 
 ## Perks of Single Node Openshift on the cloud
+In the past decade, we have witnessed exponential growth in the interest and adoption of emerging technologies such as artificial intelligence (AI), edge computing, and the cloud. The convergence of these trends is shaping a dynamic and transformative technological landscape. AI propels innovation in fields like machine learning and intelligent automation, while edge computing brings processing capabilities closer to where data is generated. Simultaneously, the cloud remains the epicenter of the digital revolution, offering unparalleled scalability and flexibility. 
 
-
-
-## Infrastructure minimum requirements
-Althoug Single Node OpenShift has a lower footprint than a traditional complete OCP cluster, there are some [minimum requirements](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#additional-requirements-for-installing-sno-on-a-cloud-provider_install-sno-installing-sno-with-the-assisted-installer) we need to acomplish: 
- * For a single-node OpenShift cluster, you need only a temporary bootstrap machine and one cloud instance for the control plane node and no worker nodes.
- * For a single-node OpenShift cluster, you must have a minimum of `8 vCPU cores`, `16GB of RAM` and `120GB of storage`.
- * The `controlPlane.replicas` setting in the `install-config.yaml` file should be set to `1`.
- * The `compute.replicas` setting in the `install-config.yaml` file should be set to `0`. This makes the control plane node schedulable.
+Single Node OpenShift emerges as an ideal solution for developers and testing teams seeking agility in development environments. As the name suggests, this configuration allows running a single instance of OpenShift on a lone node offering control and worker capabilities at the same time. With a smaller footprint, Single Node OpenShift provides a consistent and comprehensive environment for creating, testing, and deploying container-based applications without compromising the power of OpenShift. These are the [minimum system requirements](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#additional-requirements-for-installing-sno-on-a-cloud-provider_install-sno-installing-sno-with-the-assisted-installer) for deploying SNO on the cloud: `8 vCPU cores`, `16GB of RAM` and `120GB of storage`.
 
 ## Create and configure an AWS account
 For this blogpost we have choosen to use Amazon Web Service as the cloud provider, but remeber that OpenShift can be deployed in other Cloud vendors if you wish. Here is a table listing the SNO [supported cloud providers](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-a-single-node#supported-cloud-providers-for-single-node-openshift_install-sno-installing-sno-with-the-assisted-installer) and their CPU architectures: 
@@ -158,7 +152,7 @@ With this, the ssh keys have been generated and we can use them during the SNO i
    ```
    vi install-config.yaml 
    ```
-6. To deploy a Single Node OpenShift change the *`worker`* nodes to *`0`* and the *`master`* nodes to *`1`*:
+6. To deploy a Single Node OpenShift change the *`worker`* nodes to *`0`* and the *`master`* nodes to *`1`*. The `controlPlane.replicas` setting in the `install-config.yaml` file should be set to `1`. The `compute.replicas` setting in the `install-config.yaml` file should be set to `0`. This makes the control plane node schedulable.
    ```
    compute:
    - architecture: amd64
