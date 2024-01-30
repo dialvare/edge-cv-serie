@@ -203,4 +203,7 @@ All good? Well, now we can affirm that we are ready to deploy the Single Node Op
    ```
    oc get nodes
    ```
-   If everything has been configured in a proper way, you should see just one node with master and worker capabilities!  
+   If everything has been configured in a proper way, you should see just one node with master and worker capabilities!
+
+## Next stage
+In this blog, we have explored the detailed process of successfully installing Red Hat Single Node OpenShift on Amazon Web Services (AWS). This initial step lays the foundation for creating and managing containers in a fully functional environment. Now, the next exciting step is configuring OpenShift for use in the realm of artificial intelligence. The convergence of OpenShift and artificial intelligence opens up a world of possibilities for the development, deployment, and management of machine learning-driven applications. So, get ready to explore the exciting terrain where container technology meets artificial intelligence in our next blog!
