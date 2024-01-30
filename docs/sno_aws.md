@@ -158,6 +158,8 @@ We are almost ready to go! It's time to install the oc client and download the i
 All good? Well, now we can affirm that we are ready to deploy the Single Node OpenShift!
 
 ## Single Node deployment
+The moment has arrived, in a matter of minutes we will have our SNO deployed and ready to work. Without further delay, let's go through these steps:
+
 1. On the terminal, you will need to create a config file to specify the cluster details. Run:
    ```
    openshift-install create install-config --dir=./
