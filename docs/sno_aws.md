@@ -194,4 +194,13 @@ All good? Well, now we can affirm that we are ready to deploy the Single Node Op
    ```
    openshift-install create cluster --dir=./ --log-level=debug
    ```
-6. When the installation finishes, the installer will provide you the `kubeadmin` user and the `password`. Note them down.
+6. When the installation finishes, the installer will provide you the `kubeadmin` user and the `password` along with your OpenShift Web Console URL. Note them down.
+7. In order to be able to acesss your SNO, run the following command to expose the kubeconfig file:
+   ```
+   export KUBECONFIG=/home/ec2-user/auth/kubeconfig
+   ```
+8. It's time to test our SNO. Run this command:
+   ```
+   oc get nodes
+   ```
+   If everything has been configured in a proper way, you should see just one node with master and worker capabilities!  
