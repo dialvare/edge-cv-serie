@@ -25,7 +25,7 @@ That being said, let's move on and create a new AWS account from the [Amazon Web
 Amazon Route 53 is a Domain Name System (DNS) service provided by Amazon Web Services (AWS). Its primary function is to enable the resolution of domain names to IP addresses and vice versa, thereby facilitating the management of network infrastructure. The need to utilize Route 53 when installing OpenShift on AWS stems from the critical importance of efficiently managing domain names and DNS resolution to ensure accessibility and connectivity for OpenShift components.
 
 In the AWS context, Route 53 uses "hosted zones" as containers for DNS records of a specific domain. Each hosted zone in Route 53 stores information about how a particular domain should be resolved. To create a hosted zone you must first have a **domain name**. Here we can contemplate two options:
-* You already have a domain name, so you don't need to purchase a new one: In this case, you can jump to the [Transfering an existing domain]() section.
+* You already have a domain name, so you don't need to purchase a new one: In this case, you can jump to the [Transfering an existing domain](https://github.com/dialvare/edge-cv-serie/blob/main/docs/sno_aws.md#purchasing-a-domain-through-aws) section.
 * You don't own a domain name: Here, AWS allow us to purchase a domain name. This will be covered in the [Purchasing a domain through AWS]() chapter. 
 
 ### Transfering an existing domain
