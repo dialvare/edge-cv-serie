@@ -197,7 +197,7 @@ The moment has arrived, in a matter of minutes we will have our SNO deployed and
    openshift-install create cluster --dir=./ --log-level=debug
    ```
 6. When the installation finishes, the installer will provide you the `kubeadmin` user and the `password` along with your OpenShift Web Console URL. Note them down.
-7. In order to be able to acesss your SNO, run the following command to expose the kubeconfig file:
+7. In order to be able to accesss your SNO, run the following command to expose the kubeconfig file:
    ```
    export KUBECONFIG=/home/ec2-user/auth/kubeconfig
    ```
