@@ -165,14 +165,14 @@ The moment has arrived, in a matter of minutes we will have our SNO deployed and
    openshift-install create install-config --dir=./
    ```   
 2. Use the arrow keys in your keyboard and select the following configuration:
-   * **SSH Public Key**: *`/home/ec2-user/.ssh/ocp4-aws-key.pub`*.
-   * **Platform**: *`aws`*.
-   * **AWS Access Key ID**: Paste the one copied when you created your user.
-   * **AWS Secret Access Key ID**: Paste the one copied when you created your user.
-   * **Region**: Select the region where the host was created (*`eu-north-1`* in my case).
-   * **BaseDomain**: Select your domain (*`snodemo.com`* in my case).
-   * **Cluster name**: Type your preferred name for the cluster. I will choose *`sno`*.
-   * **Pull Secret**: Copy and paste your pull secret from the [Hybrid cloud Console](https://console.redhat.com/openshift/downloads#tool-pull-secret).
+   * "**SSH Public Key**": *`/home/ec2-user/.ssh/ocp4-aws-key.pub`*.
+   * "**Platform**": *`aws`*.
+   * "**AWS Access Key ID**": Paste the one copied when you created your user.
+   * "**AWS Secret Access Key ID**": Paste the one copied when you created your user.
+   * "**Region**": Select the region where the host was created (*`eu-north-1`* in my case).
+   * "**BaseDomain**": Select your domain (*`snodemo.com`* in my case).
+   * "**Cluster name**": Type your preferred name for the cluster. I will choose *`sno`*.
+   * "**Pull Secret**": Copy and paste your pull secret from the [Hybrid cloud Console](https://console.redhat.com/openshift/downloads#tool-pull-secret).
 3. Now you can take a look to the newly created config file:
    ```
    vi install-config.yaml 
