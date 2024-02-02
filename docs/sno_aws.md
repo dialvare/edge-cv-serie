@@ -121,7 +121,7 @@ During the Single Node installation, we will need to supply an SSH public key to
 With this, the ssh keys have been generated and we can use them during the SNO installation!
 
 ## Installing the OCP client and getting the installation program
-We are almost ready to go! It's time to install the oc client and download the installation program in our AWS instance. The steps are desbribed below: 
+We are almost ready to go! It's time to install the oc client and download the installation program in our AWS instance. The steps are described below: 
 
 1. Navigate to the [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift) and log in using your Red Hat credentials.
 2. On the left pannel, navigate to the "**Downloads**" page.
