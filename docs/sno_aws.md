@@ -34,7 +34,7 @@ In the AWS context, Route 53 uses "hosted zones" as containers for DNS records o
 6. At this point, you should see your domain name ready to purchase, if it is available; or a list with suggested domains, in case it was not. "**Select**" the one you want to purchase and "**Proceed to checkout**".
 7. On the following page you will need to complete with your information some parameters like the ones listed below. Navigate throughout the different sections by clicking "**Next**".
    * "**Domain pricing options**": *domain name*, *duration*, *auto-renew*.
-   * "**Contact information**": *organization*, * name*, *email*, etc.
+   * "**Contact information**": *organization*, *name*, *email*, etc.
 8. Before clicking "**Submit**" you can see this message: `Route 53 automatically creates a hosted zone for each new domain you register`. This means that once purchased the new domain, we don't need to worry about creating the hosted zone, as AWS will set it up automatically.
 9. You will receive an email when your domain gets approved.
 10. Finally, navigate again to "**Services**" > "**Networking & Content Delivery**" > "**Route 53**" to verify that the hosted zone is present.
