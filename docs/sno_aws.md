@@ -103,7 +103,7 @@ It is possible to use our personal computer as bastion node, but to make sure th
 That's it! We have just created and connected to our host machine. From here on, the following steps will be done from this AWS machine as we will use it to launch the installation.
 
 ## SSH key pair creation
-During the Single Node installation, we will need to supply an SSH public key to the installation program. This key is going to be transmitted to the node and will servie as a means of authenticating SSH access to it. Subsequently, the key is appended to the `~/.ssh/authorized_keys` list for the core user in the node, enabling password-less authentication. Here you can find a more detailed [documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws#ssh-agent-using_installing-aws-default) if you need it. Follow the next steps to complete the set up:
+During the Single Node installation, we will need to supply an SSH public key to the installation program. This key is going to be transmitted to the node and will serve as a means of authenticating SSH access to it. Subsequently, the key is appended to the `~/.ssh/authorized_keys` list for the core user in the node, enabling password-less authentication. Here you can find more detailed [documentation](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/installing/installing-on-aws#ssh-agent-using_installing-aws-default) if you need it. Follow the next steps to complete the set up:
 
 1. In your terminal run the following command to create the SSH keys:
    ```
