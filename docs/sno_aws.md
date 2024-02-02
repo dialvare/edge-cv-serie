@@ -51,7 +51,7 @@ When the AWS account was created, it was provisioned with a highly-privileged ac
 5. On the new page, type "**User name**": *`dialvare`* (introduce here the name of your new user). Then, click on "**Next**".
 6. Verify that the "**Add user to group**" box is selected. We need to give it some privileges.
 7. Select "**Create group**" and follow this set up:
-   * **User group name**: *`admin`*.
+   * "**User group name**": *`admin`*.
    * Check the "**AdministratorAccess**" policy.
 8. Click on "**Create user group**" again, and you will be redirected to the *User creation* form.
 9. Select the new "**admin**" group name.
@@ -65,7 +65,7 @@ When the AWS account was created, it was provisioned with a highly-privileged ac
 17. Please, copy the "**Access key**" and the "**Secret access key**". You will use them in the future to fire up the SNO installation.
 18. To close this window, click on "**Done**".
 
-With that, we have completed most of the pre-requisites before starting with the SNO installation. We have ensured that our network connections is configured thanks to the hosted zone and the Route 53 service and we have created our OCP user with admin priviledges. Now it's time to create the machine from which we will launch the installation.
+With that, we have completed most of the prerequisites before starting with the SNO installation. We have ensured that our network connections are configured thanks to the hosted zone and the Route 53 service and we have created our OCP user with admin privileges. Now it's time to create the machine from which we will launch the installation.
 
 ## Create AWS instance
 It is possible to use our personal computer as bastion node, but to make sure that everyone following this blogpost can do it from start to finish, we are going to create an AWS instance to avoid possible hardware limitations in some users. Here are a few simple steps:
