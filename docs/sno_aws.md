@@ -42,7 +42,7 @@ In the AWS context, Route 53 uses "hosted zones" as containers for DNS records o
 And that's all you need to configure your Route 53 service correctly! Now you can continue with the next step. 
 
 ## Creating the IAM user
-When the AWS account was created, it was provisioned with a highly-privileged account. However, the creation of a specific IAM user for OpenShift on AWS is a recommended practice to add an additional layer of security and facilitate the management and auditing of the accesses and actions performed by OpenShift on the AWS infrastructure. The official AWS documentation for this purpose can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console). Follow the next precedure to create your user:
+When the AWS account was created, it was provisioned with a highly-privileged account. However, the creation of a specific IAM user for OpenShift on AWS is a recommended practice to add an additional layer of security and facilitate the management and auditing of the accesses and actions performed by OpenShift on the AWS infrastructure. The official AWS documentation for this purpose can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console). Follow the next procedure to create your user:
 
 1. In the [AWS Web Console](https://console.aws.amazon.com/), navigate again to "**Services**", in the upper-left corner.
 2. Now click on "**Security, Identity & Compliance**" and select the "**IAM**" option.
