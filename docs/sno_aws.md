@@ -85,11 +85,11 @@ It is possible to use our personal computer as bastion node, but to make sure th
      * "**Private key file format**": *`.pem`* (as we will be using ssh to connect).
    * Once completed, click "**Create key pair**". The download process will start automatically.
    * On the *Networking settings* section, click on "**Edit**" and complete the following fields:
-     * **VPC**: Go to the [VPC dashboard](https://console.aws.amazon.com/vpcconsole/home?#CreateDefaultVpc:) and click on "**Create a new default VPC**". Back to the *Networking* page, click the *Refresh arrow* to autmatically detect your new VPC.
-     * **Subnet**: click on the *Refresh arrow* and *`No Preference`* will be selected automatically.
-     * **Auto-assign public IP**: *`Enable`*.
+     * "**VPC**": Go to the [VPC dashboard](https://console.aws.amazon.com/vpcconsole/home?#CreateDefaultVpc:) and click on "**Create a new default VPC**". Back to the *Networking* page, click the *Refresh arrow* to automatically detect your new VPC.
+     * "**Subnet**": click on the *Refresh arrow* and *`No Preference`* will be selected automatically.
+     * "**Auto-assign public IP**": *`Enable`*.
      * For the Firewall set up, check the "**Create security group**" box.
-   * **Configure storage**: *`1x8GiB gp3`* Root volume.
+   * "**Configure storage**": *`1x8GiB gp3`* Root volume.
 6. On the right side, now you can press the "**Launch instance**" button. Wait until the creation finishes successfully.
 7. The next step will be selecting "**Connect to your instance**". This will open a new tab. 
 8. Navigate to the "**SSH client**" tab where the steps to connect using SSH are described. Copy the command displayed at the bottom.
