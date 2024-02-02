@@ -124,7 +124,7 @@ With this, the ssh keys have been generated and we can use them during the SNO i
 We are almost ready to go! It's time to install the oc client and download the installation program in our AWS instance. The steps are described below: 
 
 1. Navigate to the [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift) and log in using your Red Hat credentials.
-2. On the left pannel, navigate to the "**Downloads**" page.
+2. On the left panel, navigate to the "**Downloads**" page.
 3. Locate the "**OpenShift command-line interface (oc)**". Select "**Linux**" as the *OS system* and your *Architecture type*.
 4. Instead of clicking Download, **right-click** on the *Download* button and select **Copy Link Address**.
 5. Back to the terminal, ensure you are connected to the AWS host machine and run the following command. Remember to paste the Link Address copied before:
