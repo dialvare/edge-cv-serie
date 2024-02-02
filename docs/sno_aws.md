@@ -75,15 +75,15 @@ It is possible to use our personal computer as bastion node, but to make sure th
 3. In the drop-down menu, click on "**Compute**" and then "**EC2**" on the right side, to create the virtual server.
 4. On the *Resources* dashboard, press "**Launch instance**".
 5. Complete the following fields:
-   * **Name**: *`host`* (insert any preferred name).
-   * **Amazon Machine Image (AMI)**: *`Amazon Linux 2023 AMI`*.
-   * **Architecture**: *`64-bit (x86)`* (you can use Arm architecture if preferred).
-   * **Instance type**: *`c5.2xlarge`*. This instance matches the minimum requirements: `8vCPU` and `16GB RAM`.
-   * **Key pair**: will be used to connect to the machine. Click on "**Create new key pair**" and configure it:
-     * **Key pair name**: *`my-keys`* (type any preferred name).
-     * **Key pair type**: *`RSA`*.
-     * **Private key file format**: *`.pem`* (as we will be using ssh to connect).
-   * Once completed, click "**Create key pair**". The keys download process will start automatically.
+   * "**Name**": *`host`* (insert any preferred name).
+   * "**Amazon Machine Image (AMI)**": *`Amazon Linux 2023 AMI`*.
+   * "**Architecture**": *`64-bit (x86)`* (you can use Arm architecture if preferred).
+   * "**Instance type**": *`c5.2xlarge`*. This instance matches the minimum requirements: `8vCPU` and `16GB RAM`.
+   * "**Key pair**": will be used to connect to the machine. Click on "**Create new key pair**" and configure it:
+     * "**Key pair name**": *`my-keys`* (type any preferred name).
+     * "**Key pair type**": *`RSA`*.
+     * "**Private key file format**": *`.pem`* (as we will be using ssh to connect).
+   * Once completed, click "**Create key pair**". The download process will start automatically.
    * On the *Networking settings* section, click on "**Edit**" and complete the following fields:
      * **VPC**: Go to the [VPC dashboard](https://console.aws.amazon.com/vpcconsole/home?#CreateDefaultVpc:) and click on "**Create a new default VPC**". Back to the *Networking* page, click the *Refresh arrow* to autmatically detect your new VPC.
      * **Subnet**: click on the *Refresh arrow* and *`No Preference`* will be selected automatically.
