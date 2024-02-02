@@ -131,7 +131,7 @@ We are almost ready to go! It's time to install the oc client and download the i
    ```
    wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-client-linux.tar.gz
    ```
-6. Back to the Hysbrid Cloud Console, scroll down until you spot "**OpenShift for x86_64 Installer**". Again, select "**Linux**" as the *OS system*.
+6. Back to the Hybrid Cloud Console, scroll down until you spot "**OpenShift for x86_64 Installer**". Again, select "**Linux**" as the *OS system*.
 7. Instead of clicking Download, **right-click** on the *Download* button and select **Copy Link Address**.
 8. In the Terminal window, run the following command:
    ```
