@@ -28,7 +28,7 @@ In the AWS context, Route 53 uses "hosted zones" as containers for DNS records o
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/).
 2. Navigate to "**Services**", in the upper-left corner.
-3. In the drop-down menu, select the "**Networking & Content Delivery**" adn click on "**Route 53**".
+3. In the drop-down menu, select "**Networking & Content Delivery**" and click on "**Route 53**".
 4. Now, go to "**Registered domains**" on the left side of the Dashboard. There you should see a `No domains to display` message.
 5. Press the "**Register domains**" button, in the upper-right corner and type your preferred domain name (g.e. `snodemo.com`) and click "**Search**".
 6. At this point, you should see your domain name ready to purchase, if it is available; or a list with suggested domains, in case it was not. "**Select**" the one you want to purchase and "**Proceed to checkout**".
