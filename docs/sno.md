@@ -30,7 +30,7 @@ At this point, we are good to “**Generate the Discovery ISO**”. Instantly, w
 ### Node configuration
 Now, we will need to switch to our bare metal node. Here we need to configure our node to boot using our discovery iso. Depending on the host, this procedure could be slightly different in your case, but overall, the steps would be pretty similar to these ones:
 
-In our case, we will click on “**Connect Virtual Media**”. There, we will be able to “**Choose the File**” with the discovery iso we just downloaded. Now we are good to “**Map the device**”. Also we will need to configure our host to boot using the virtual media. We will click on “**Boot**” and select “**Virtual CD/DVD/ISO**” from the list. 
+In our case, we will click on “**Connect Virtual Media**”. There, we will be able to “**Choose the File**” and select the discovery iso we just downloaded. Now we are good to “**Map the device**”. Also we will need to configure our host to boot using the virtual media. We will click on “**Boot**” and select “**Virtual CD/DVD/ISO**” from the list. 
 
 Finally, all we need to do is reboot the system. Click on “**Power Off System**” and then “**Power On the System**” again. With this, the SNO host provisioning will begin. 
 
