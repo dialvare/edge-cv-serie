@@ -4,14 +4,14 @@ Single Node OpenShift is Red Hat’s solution for edge use cases when we want to
 In this demo we will use the Assisted Installer provided with the Hybrid Cloud Console to deploy Single Node OpenShift on real bare metal hardware, equipped with a GPU, in my case, an NVIDIA Tesla M60 GPU Card.
 
 ## Assisted Installer
-As a starting point, let’s navigate to the [OpenShift Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift). There, we will need to log in using our Red Hat account credentials. Once on the landing page, we are going to click on “**Create Cluster**” so we can start with the Assisted Installer. In this case, we are going to use a real bare metal host, so we will need to select the “**Datacenter**” tab. Here, under the Assisted Installer section, let’s click on “**Create Cluster**”. This will guide us to the cluster configuration wizard page. 
+As a starting point, let’s navigate to the [OpenShift Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift). There, we will need to log in using our Red Hat account credentials. Once on the landing page, we are going to click on “**Create Cluster**” so we can start with the Assisted Installer. In this case, we are going to use a real bare metal host, so we will need to select the “**Datacenter**” tab. Here, in the Assisted Installer section, let’s click on “**Create Cluster**”. This will guide us to the cluster configuration wizard page. 
 
 ### Cluster details
 As you can see there are plenty of fields that we can configure in our cluster:
-- **Cluster name**: *demo* (insert any preferred name)
-- **Base domain**: *pemlab.rdu2.redhat.com* (to match our environment domain).
-- **OpenShift version**: *OpenShift 4.13.2* (latest version at the time I'm writting this).
-- **CPU architecture**: *x86_64* (our bare metal host uses Intel architecture).
+- "**Cluster name**": `*sno*` (insert any preferred name)
+- "**Base domain**": `*pemlab.rdu2.redhat.com*` (to match our environment domain).
+- "**OpenShift version**": `*OpenShift 4.14.10*` (latest version at the time I'm writting this).
+- "**CPU architecture**": `*x86_64*` (our bare metal host uses Intel architecture).
 - Check the “**Install single node OpenShift (SNO)**” box.
 
 Finally, let's leave the rest of the parameters as default and click on the blue “**Next**” button until you reach the *Host Discovery* section.
