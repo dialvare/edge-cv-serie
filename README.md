@@ -3,7 +3,7 @@
 ## Episodes:
 1. Setting up SNO on a DGX server:
     * [WIP] [Single Node OpenShift installation on AWS](https://github.com/dialvare/edge-cv-serie/blob/main/docs/sno_aws.md)
-    * [Single Node OpenShift installation using the Assisted Installer on baremetal](https://github.com/dialvare/edge-cv-serie/blob/main/docs/sno.md)
+    * [WIP] [Single Node OpenShift installation using the Assisted Installer on baremetal](https://github.com/dialvare/edge-cv-serie/blob/main/docs/sno.md)
     * [Infrastructure configuration](https://github.com/dialvare/edge-cv-serie/blob/main/docs/infra.md)
 
 2. Setting up and using RHODS on SNO:
